@@ -17,3 +17,14 @@ squares of the two larger numbers.
 
 (define (biggest-square-sum a b c)
   (square-sum (biggest a b) (biggest (smallest a b) c)))
+  
+  
+  Alternative elegant solution:
+  
+(define (square a) (* a a))
+(define (bigger x y)
+   (if (> x y) x y))
+
+(define (biggest-square-sum a b c)
+   (cond ((> a b) (+ (square a) (square (bigger b c))))
+   (else (+ (square b) (square (bigger a c))))))
